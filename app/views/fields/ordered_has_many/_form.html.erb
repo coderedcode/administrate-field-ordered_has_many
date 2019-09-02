@@ -1,0 +1,51 @@
+<div class="field-unit__label">
+  <%= f.label field.association_name %>
+</div>
+
+<div class="field-unit__field">
+
+  <% _group_id = "gid_#{SecureRandom.alphanumeric}" %>
+  
+  <% field.values.each do |v| %>
+    <p>
+      <%= f.select(field.attribute, options_from_collection_for_select(
+        field.selectable_options, :id, :name, v),
+        {include_blank: true},
+        { name: "#{f.object_name}[#{field.attribute}][]",
+          class: _group_id}) 
+      %>
+    </p>
+  <% end %>
+
+  <p>
+    <%= f.select(field.attribute, options_from_collection_for_select(
+                 field.selectable_options, :id, :name, nil), 
+                 { include_blank: true }, 
+                 { name: "#{f.object_name}[#{field.attribute}][]",
+                   class: _group_id}) %>
+  </p>
+  <%= button_tag(
+      '+',
+      onclick: 'var $l = $(".' + _group_id + '").last(); $l.clone(false).insertAfter($l).val(""); return false;',
+    )
+  %>
+
+  <script>
+    (function() {
+      var group_selector = '.<%= _group_id %>'
+  
+      document.addEventListener("DOMContentLoaded", function(evt) {
+  
+        var $f = $(group_selector).parents('form');
+  
+        $f.on('submit', function() {
+          // Filter empty fileds before submit
+          $(group_selector).filter(function() {
+            return !this.value;
+          }).removeAttr('name');
+        });
+      });
+    })()
+  </script>
+
+</div>
