@@ -40,6 +40,9 @@ module Administrate
           raise "#{self.attribute} must be an array of #{associated_class} ID's, instead it was #{data.inspect}"
         end
       end
+
+      class Engine < ::Rails::Engine; end
+
     end
   end
 end
