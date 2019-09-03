@@ -1,5 +1,7 @@
 # Administrate::Field::OrderedHasMany
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/9cb25ae940ea96c452a2/maintainability)](https://codeclimate.com/github/coderedcode/administrate-field-ordered_has_many/maintainability)
+
 This plugin allows you to manage ordered `has_many` relationships within [Administrate](https://github.com/thoughtbot/administrate). The relationships must be defined on the parent in the form of a SQL array field with the name `ordered_#{association_name}_ids`.
 
 ## Installation
