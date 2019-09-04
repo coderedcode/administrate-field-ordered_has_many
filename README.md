@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-In the dashboard for the parent resource, set the attribute type for your ordered `has_many` association to `Field::OrderedHasMany`. The edit UI will now show a set of select boxes for each association defined by the array value.
+In the dashboard for the parent resource, set the attribute type for your ordered `has_many` association to `Field::OrderedHasMany`. The edit UI will now show a set of select fields for each association defined by the array value.
 
 ## Development
 
